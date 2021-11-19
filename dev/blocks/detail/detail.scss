@@ -3,6 +3,9 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .detail {
+	position: relative;
+	max-width: 100%;
+	overflow-x: hidden;
 	&__inner {
 		padding: 20px 0 32px;
 		@media (min-width: $screen-md) {
