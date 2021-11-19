@@ -1,0 +1,11 @@
+<view id="icon__shewron_thin-view" viewBox="0 0 24 24" />
+<view id="icon__search-view" viewBox="0 24 24 24" />
+<view id="icon__calendar-view" viewBox="0 48 24 24" />
+<view id="icon__cross-view" viewBox="0 72 24 24" />
+<view id="icon__settings-view" viewBox="0 96 24 24" />
+
+<use xlink:href="#icon__shewron_thin" style="fill:#222222" width="24" height="24" x="0" y="0" id="shewron_thin"></use>
+<use xlink:href="#icon__search" style="fill:#222222" width="24" height="24" x="0" y="24" id="search"></use>
+<use xlink:href="#icon__calendar" style="fill:#222222" width="24" height="24" x="0" y="48" id="calendar"></use>
+<use xlink:href="#icon__cross" style="fill:#222222" width="24" height="24" x="0" y="72" id="cross"></use>
+<use xlink:href="#icon__settings" style="fill:#222222" width="24" height="24" x="0" y="96" id="settings"></use>

@@ -1,0 +1,46 @@
+//- Все примеси в этом файле должны начинаться c имени блока (table-modal)
+
+mixin table-modal(items, data)
+	each item in items
+		.page__modal-container
+			.page__table-modal
+				.table-modal(data-modal= data)
+					.table-modal__header
+						p.table-modal__label Заявка создана
+							span.table-modal__data-create!= item.create
+						svg.table-modal__close
+							use(xlink:href='img/svgSprite.svg#icon__cross')
+					.table-modal__body
+						.table-modal__row
+							h2.table-modal__heading!= item.heading
+							.table-modal__requisite-set
+								each requisite in item.requisites
+									.table-modal__requisite!= requisite.requisite
+						.table-modal__row
+							.table-modal__subtitle
+								p.table-modal__text!= item.subtitleContacts
+							.table-modal__item
+								each contact in item.contacts
+									.table-modal__conact
+										svg.table-modal__conact-icon
+											use(xlink:href='img/svgSprite.svg#icon__' + contact.contactIcon)
+										p.table-modal__conact-text!= contact.contact
+						.table-modal__row
+							.table-modal__subtitle
+								p.table-modal__text!= item.subtitleState
+							.table-modal__item
+								.table-modal__info
+									p.table-modal__state.state(class='state_' + item.mod)!= item.data
+									p.table-modal__time!= item.time
+								p.table-modal__message!= item.message
+						.table-modal__row
+							.table-modal__accordion
+								.table-modal__subtitle.table-modal__subtitle_accordion
+									p.table-modal__text!= item.subtitleHistory
+									svg.table-modal__subtitle-icon
+										use(xlink:href='img/svgSprite.svg#icon__shewron_bold')
+								.table-modal__item
+									each state in item.states
+										.table-modal__history-set
+											p.table-modal__state.state(class='state_' + state.mod)!= state.data
+											p.table-modal__time!= state.time

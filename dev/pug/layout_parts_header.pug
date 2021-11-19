@@ -1,0 +1,25 @@
+header.header
+	.grid
+		.grid__row
+			.grid__col_xs-12.grid__col_sm-12.grid__col_lg-12
+				.header__inner
+					a.header__menu(href='#')
+						svg.header__menu-icon
+							use(xlink:href='img/svgSprite.svg#icon__menu')
+					a.header__logo(href='#')
+						svg.header__logo-icon
+							use(xlink:href='img/svgSprite.svg#logo')
+					.header__user-action
+						.header__score
+							svg.header__score-icon
+								use(xlink:href='img/svgSprite.svg#icon__wallet')
+							p.header__score-value 24 700₽
+						.header__user
+							.user
+								a.user__avatar(href='#')
+									svg.user__cap
+										use(xlink:href='img/svgSprite.svg#icon__cap')
+									p.user__letter A
+								a.user__logout(href='#')
+									svg.user__logout-icon
+										use(xlink:href='img/svgSprite.svg#icon__logout')

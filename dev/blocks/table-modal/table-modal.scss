@@ -1,0 +1,170 @@
+// В этом файле должны быть стили для БЭМ-блока table-modal, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.table-modal {
+	background: var(--color-light);
+	border-radius: 20px 20px 0 0;
+	padding: 24px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+	@media (min-width: $screen-nexus) {
+		border-radius: 20px 0 0 20px;
+	}
+	@media (min-width: $screen-md) {
+		padding: 32px 32px 44px 44px;
+	}
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__label {
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		line-height: 1.43;
+		margin: 0;
+	}
+	&__data-create {
+		margin-left: 8px;
+	}
+	&__close {
+		cursor: pointer;
+		fill: var(--color-grey-primary);
+		height: 24px;
+		transition: opacity .25s ease;
+		width: 24px;
+		&:hover {
+			opacity: .7;
+		}
+	}
+	&__body {
+		padding-top: 40px;
+		@media (min-width: $screen-md) {
+			padding-top: 76px;
+		}
+	}
+	&__row {
+		& + & {
+			margin-top: 40px;
+		}
+	}
+	&__heading {
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 1;
+		margin: 0;
+		@media (min-width: $screen-md) {
+			line-height: 1.1;
+		}
+	}
+	&__requisite-set {
+		margin-top: 16px;
+		@media (min-width: $screen-md) {
+			align-items: center;
+			display: flex;
+			margin-top: 20px;
+		}
+	}
+	&__requisite {
+		& + & {
+			margin-top: 4px;
+			@media (min-width: $screen-md) {
+				margin-left: 20px;
+				margin-top: 0;
+			}
+		}
+	}
+	&__subtitle {
+		align-items: center;
+		display: flex;
+		&_accordion {
+			cursor: pointer;
+			user-select: none;
+		}
+	}
+	&__subtitle-icon {
+		fill: var(--color-grey-secondary);
+		height: 24px;
+		margin-left: 12px;
+		transform: rotate(180deg);
+		transition: rotate .25s ease;
+		width: 24px;
+		.accordion-open & {
+			transform: rotate(0);
+		}
+	}
+	&__text {
+		margin: 0;
+		color: var(--color-grey-secondary);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	&__item {
+		margin-top: 12px;
+		.table-modal__accordion & {
+			overflow: hidden;
+		}
+	}
+	&__conact {
+		align-items: center;
+		display: flex;
+		@media (min-width: $screen-md) {
+			margin-top: 20px;
+		}
+		& + & {
+			margin-top: 12px;
+		}
+	}
+	&__conact-icon {
+		fill: var(--color-grey-primary);
+		height: 16px;
+		margin-right: 12px;
+		width: 16px;
+	}
+	&__conact-text {
+		margin: 0;
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		padding-left: 20px;
+	}
+	&__state {}
+	&__time {
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		line-height: 1.43;
+		margin: 0;
+	}
+	&__message {
+		margin: 12px 0 0 0;
+		padding-left: 22px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.43;
+		letter-spacing: 0.01em;
+		strong {
+			display: block;
+			font-weight: 700;
+			line-height: 2;
+		}
+	}
+	&__history-set {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding: 8px 0 8px 22px;
+		@media (min-width: $screen-md) {
+			padding: 12px 0 12px 22px;
+		}
+		& + & {
+			margin-top: 4px;
+		}
+	}
+}

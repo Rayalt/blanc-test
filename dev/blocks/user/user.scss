@@ -1,0 +1,52 @@
+// В этом файле должны быть стили для БЭМ-блока user, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.user {
+	align-items: center;
+	display: flex;
+	&__avatar {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		margin-right: 12px;
+		position: relative;
+		text-decoration: none;
+		&:hover {
+			.user__cap {
+				fill: var(--color-income);
+			}
+		}
+	}
+	&__cap {
+		display: block;
+		fill: var(--color-income-light);
+		height: 30px;
+		width: 32px;
+		transition: fill .25s ease;
+	}
+	&__letter {
+		color: var(--color-light);
+		margin: 0;
+		position: absolute;
+		font-size: 16px;
+		line-height: 1.5;
+		text-align: center;
+	}
+	&__logout {
+		display: flex;
+		text-decoration: none;
+		&:hover {
+			.user__logout-icon {
+				fill: var(--color-rejected);
+			}
+		}
+	}
+	&__logout-icon {
+		display: block;
+		fill: var(--color-grey-primary);
+		height: 24px;
+		transition: fill .25s ease;
+		width: 24px;
+	}
+}

@@ -1,0 +1,12 @@
+//- Все примеси в этом файле должны начинаться c имени блока (table)
+
+mixin table(items, data)
+	tr.table__row(data-table= data)
+		each item in items
+			td.table__data
+				if item.isMod === true
+					.table__content
+						p.state(class='state_' + item.mod)!= item.data
+				else
+					p.table__content!= item.data
+	

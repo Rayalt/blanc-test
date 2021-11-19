@@ -1,0 +1,45 @@
+//- Стандартный шаблон страницы
+block variables
+
+include mixins.pug
+
+doctype html
+html(class='no-js', lang='ru-RU')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=0.1, shrink-to-fit=no')
+		meta(name='google', content='notranslate')
+		meta(name='format-detection', content='telephone=no')
+		meta(name='format-detection', content='date=no')
+		meta(name='format-detection', content='address=no')
+		meta(name='format-detection', content='email=no')
+		meta(name='HandheldFriendly' content='true')
+		meta(name='robots', content='index, follow')
+		meta(name='theme-color', content='#000000')
+
+		link(rel='icon', type='image/png', href='/img/favicon/favicon-32x32.png', sizes='32x32')
+
+		block meta
+			title page title
+			meta(name='description', content='')
+			meta(name='keywords', content='')
+
+		block head
+			link(rel='stylesheet', href='css/style.css')
+
+	body
+		noscript У вас отключен JavaScript. Это пугает.
+
+		.page
+			.page__header
+				include layout_parts_header.pug
+			.page__main
+				block content
+			.page__side-nav
+				include ../pug/layout_parts_side-nav.pug
+			.page__darker
+			.page__modal-darker
+		
+			include ../pug/layout_parts_table-more.pug
+		script(src='js/main.js')
+		block scripts

@@ -1,0 +1,17 @@
+//- Все примеси в этом файле должны начинаться c имени блока (card)
+
+mixin card(items)
+	each item in items
+		.card
+			.card__header
+				.card__header-info
+					h2.card__title!= item.title
+					svg.card__icon
+						use(xlink:href='img/svgSprite.svg#icon__shewron_bold')
+				p.card__total!= item.score
+			.card__body
+				.card__inner
+					each info in item.info
+						.card__item
+							p.card__info!= info.info
+							p.card__score!= info.score

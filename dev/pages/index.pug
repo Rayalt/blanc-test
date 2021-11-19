@@ -1,0 +1,166 @@
+extends ../pug/layout_default.pug
+
+block variables
+
+block meta
+	title Главная страница
+
+block content
+	section.application
+		.grid
+			.grid__row
+				.grid__col_xs-12.grid__col_sm-12.grid__col_lg-12
+					.application__inner
+						.application__row
+							.application__header
+								h1.application__heading Заявки #[span 1 237]
+								a.application__button.button.button_primary(href='#')
+									svg.button__icon
+										use(xlink:href='img/svgSprite.svg#icon__plus')
+									p.button__text Создать заявку
+								.application__filter
+									select.select.application__select
+										option За год
+										option За день
+										option За месяц
+									.application__calendar
+										.input
+											input.input__calendar(placeholder='30 июн 2020 - 30 июн 2021' type='text')
+						.application__card-set
+							.application__card.accordion-open
+								+card([
+									{
+										title: 'В ожидании',
+										score: '154',
+										info: [
+											{
+												info: 'Назначение встречи',
+												score: '31'
+											},
+											{
+												info: 'Встреча назначена',
+												score: '123'
+											}
+										]
+									}
+								])
+							.application__card.accordion-open
+								+card([
+									{
+										title: 'Открыто счетов',
+										score: '262',
+										info: [
+											{
+												info: 'Активных',
+												score: '207'
+											},
+											{
+												info: 'Неактивных',
+												score: '55'
+											}
+										]
+									}
+								])
+							.application__card.accordion-open
+								+card([
+									{
+										title: 'В отказе',
+										score: '37',
+										info: [
+											{
+												info: 'Банк',
+												score: '14'
+											},
+											{
+												info: 'Клиент',
+												score: '10'
+											},
+											{
+												info: 'Просрочено',
+												score: '13'
+											},
+											{
+												info: 'Закрыто',
+												score: '13'
+											}
+										]
+									}
+								])
+							.application__card.accordion-open
+								+card([
+									{
+										title: 'Ты заработал',
+										score: '20 533 500 ₽',
+										info: [
+											{
+												info: 'За активные',
+												score: '10 310 500 ₽'
+											},
+											{
+												info: 'За открытые',
+												score: '10 223 000 ₽'
+											}
+										]
+									}
+								])
+							
+	section.detail
+		.detail__inner
+			.grid
+				.grid__row
+					.grid__col_xs-12.grid__col_sm-12.grid__col_lg-12
+						.detail__header
+							.detail__search
+								.input
+									input.input__search(placeholder='Расчетный счет' type='search')
+							.detail__select
+								select.select.select_secondary
+									option Статус заявки
+									option В ожидании
+									option Открыто
+									option В отказе
+			.detail__table
+				.detail__grid
+					.detail__row
+						.detail__col
+							table.table
+								thead.table__head
+									+table([
+										{data: 'Создана'},
+										{data: 'Компания'},
+										{data: 'ИНН'},
+										{data: 'Статус'}
+									], 'header')
+								tbody.table__body
+									+table([
+										{data: '1 сентября<span class="table__time">14:45</span>'},
+										{data: 'ООО «ПР-Консалтинг»'},
+										{data: '<span class="table__inn">ИНН </span>938517492735'},
+										{data: 'Назначение встречи', isMod: true, mod: 'waiting'}
+									], 'row-1')
+									+table([
+										{data: '1 сентября <span class="table__time">14:43</span>'},
+										{data: 'ООО «МИР ИДЕЙ»'},
+										{data: '<span class="table__inn">ИНН </span>672940816473'},
+										{data: 'Встреча назначена' , isMod: true, mod: 'accepted'}
+									], 'row-2')
+									+table([
+										{data: '31 августа <span class="table__time">14:07</span>'},
+										{data: 'ООО «СТРОЙ-ПЕТРО-СБЫТ и партнёры...'},
+										{data: '<span class="table__inn">ИНН </span>183926789365'},
+										{data: 'Счёт открыт' , isMod: true, mod: 'accepted'}
+									], 'row-3')
+									+table([
+										{data: '31 августа <span class="table__time">17:58</span>'},
+										{data: 'ИП Мартынов Сергей Петрович'},
+										{data: '<span class="table__inn">ИНН </span>183724058214'},
+										{data: 'Отказ банка', isMod: true, mod: 'rejected'}
+									], 'row-4')
+									+table([
+										{data: '30 августа <span class="table__time">16:24</span>'},
+										{data: 'ИП Воронин Арсений Михайлович'},
+										{data: '<span class="table__inn">ИНН </span>758465926371'},
+										{data: 'Встреча назначена', isMod: true, mod: 'waiting'}
+									], 'row-5')
+									
+			

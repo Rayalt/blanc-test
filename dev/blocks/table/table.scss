@@ -1,0 +1,210 @@
+// В этом файле должны быть стили для БЭМ-блока table, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.table {
+	border-collapse: collapse;
+	display: block;
+	width: 100%;
+	@media (min-width: $screen-sm) {
+		display: table;
+	}
+	&__head {
+		display: none;
+		@media (min-width: $screen-sm) {
+			display: table-header-group;
+		}
+	}
+	&__body {
+		display: block;
+		@media (min-width: $screen-sm) {
+			display: table-row-group;
+		}
+	}
+	&__row {
+		box-shadow: var(--inner-shadow-bottom);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+				'status status'
+				'name name'
+				'inn data';
+		@media (min-width: $screen-nexus) {
+			grid-template-columns: 2fr 1fr 1fr;
+			grid-template-areas:
+				'status status status'
+				'name inn data';
+		}
+		@media (min-width: $screen-sm) {
+			box-shadow: none;
+			display: table-row;
+		}
+	}
+	&__data {
+		border: none;
+		display: flex;
+		padding: 0;
+		@media (min-width: $screen-sm) {
+			display: table-cell;
+			max-width: 158px;
+		}
+		&:nth-child(4n + 1) {
+			grid-area: data;
+			justify-self: end;
+			@media (min-width: $screen-nexus) {
+				justify-content: flex-end;
+			}
+			@media (min-width: $screen-sm) {
+				max-width: 200px;
+				justify-self: auto;
+			}
+			@media (min-width: $screen-lg) {
+				max-width: 220px;
+			}
+		}
+		&:nth-child(3n + 2) {
+			grid-area: name;
+			@media (min-width: $screen-md) {
+				max-width: 400px;
+			}
+			@media (min-width: $screen-lg) {
+				max-width: 440px;
+			}
+		}
+		&:nth-child(2n + 3) {
+			grid-area: inn;
+			@media (min-width: $screen-nexus) {
+				justify-content: flex-end;
+				justify-self: end;
+			}
+			@media (min-width: $screen-sm) {
+				justify-self: auto;
+			}
+			@media (min-width: $screen-md) {
+				max-width: 188px;
+			}
+			@media (min-width: $screen-lg) {
+				max-width: none;
+			}
+		}
+		&:nth-child(n + 4) {
+			grid-area: status;
+			max-width: none;
+			width: 100%;
+		}
+	}
+	&__content {
+		display: block;
+		margin: 0;
+		padding-left: 28px;
+		padding-right: 28px;
+		pointer-events: none;
+		text-decoration: none;
+		@media (min-width: $screen-sm) {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 0;
+		}
+		.table__data:nth-child(4n + 1) & {
+			display: flex;
+			justify-content: flex-end;
+			@media (min-width: $screen-sm) {
+				justify-content: space-between;
+			}
+		}
+		.table__body .table__data:nth-child(4n + 1) & {
+			padding-bottom: 18px;
+			padding-left: 0;
+			padding-top: 8px;
+			@media (min-width: $screen-nexus) {
+				max-width: 150px;
+				text-align: right;
+			}
+			@media (min-width: $screen-sm) {
+				padding: 15px 24px 15px 8px;
+				max-width: none;
+			}
+			@media (min-width: $screen-lg) {
+				padding-right: 50px;
+			}
+		}
+		.table__body .table__data:nth-child(3n + 2) & {
+			font-weight: 700;
+			padding-bottom: 4px;
+			padding-top: 8px;
+			@media (min-width: $screen-nexus) {
+				padding-right: 0;
+			}
+			@media (min-width: $screen-sm) {
+				font-weight: 400;
+				padding: 15px 24px 15px 8px;
+			}
+			@media (min-width: $screen-lg) {
+				padding-right: 70px;
+			}
+		}
+		.table__body .table__data:nth-child(2n + 3) & {
+			padding-bottom: 18px;
+			padding-top: 8px;
+			@media (min-width: $screen-nexus) {
+				white-space: nowrap;
+			}
+			@media (min-width: $screen-sm) {
+				padding: 15px 24px 15px 8px;
+			}
+			@media (min-width: $screen-lg) {
+				padding-right: 72px;
+			}
+		}
+		.table__body .table__data:nth-child(n + 4) & {
+			padding-top: 20px;
+			padding-bottom: 8px;
+			padding-left: 48px;
+			@media (min-width: $screen-sm) {
+				padding: 15px 0 15px 26px;
+			}
+		}
+		
+	}
+	&__time {
+		margin-left: 12px;
+		@media (min-width: $screen-lg) {
+			margin-left: 26px;
+		}
+	}
+	&__inn {
+		@media (min-width: $screen-sm) {
+			display: none;
+		}
+	}
+	&__head &__data {
+		color: var(--color-grey-secondary);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		padding: 8px;
+		@media (min-width: $screen-sm) {
+			white-space: nowrap;
+		}
+	}
+	&__body &__row {
+		cursor: pointer;
+		transition: background .25s ease;
+		&:hover {
+			background: var(--color-grey-quaternary);
+		}
+	}
+	&__body &__data {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.43;
+		@media (min-width: $screen-sm) {
+			font-size: 16px;
+			line-height: 1.33;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+		}
+	}
+}

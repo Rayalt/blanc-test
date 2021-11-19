@@ -1,0 +1,83 @@
+// В этом файле должны быть стили для БЭМ-блока detail, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.detail {
+	&__inner {
+		padding: 20px 0 32px;
+		@media (min-width: $screen-md) {
+			padding: 16px 0 64px;
+		}
+	}
+	&__header {
+		align-items: center;
+		display: flex;
+	}
+	&__search {
+		flex: 1 1 auto;
+		@media (min-width: $screen-md) {
+			width: 63.21%;
+		}
+	}
+	&__select {
+		margin-left: 12px;
+		text-decoration: none;
+		width: 32px;
+		@media (min-width: $screen-sm) {
+			margin-left: 16px;
+		}
+		@media (min-width: $screen-md) {
+			width: 239px;
+			margin-left: 12px;
+		}
+		@media (min-width: $screen-lg) {
+			width: auto;
+			flex: 1 1 auto;
+		}
+	}
+	&__settings {
+		
+	}
+	&__settings-icon {
+		color: var(--color-grey-primary);
+		height: 24px;
+		width: 24px;
+	}
+	&__table {
+		margin-top: 12px;
+		@media (min-width: $screen-md) {
+			margin-top: 32px;
+		}
+	}
+	&__grid {
+		display: block;
+		margin-top: 20px;
+		width: 100%;
+		@media (min-width: $screen-sm) {
+			margin: 0 auto;
+			padding: 0 16px;
+			width: 720px;
+		}
+		@media (min-width: $screen-md) {
+			width: 1008px;
+		}
+		@media (min-width: $screen-lg) {
+			width: 1152px;
+		}
+	}
+	&__row {
+		display: flex;
+		@media (min-width: $screen-sm) {
+			margin: 0 -16px;
+		}
+	}
+	&__col {
+		width: 100%;
+		@media (min-width: $screen-sm) {
+			padding: 0 12px;
+		}
+		@media (min-width: $screen-lg) {
+			padding: 0 16px;
+		}
+	}
+}

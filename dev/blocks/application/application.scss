@@ -1,0 +1,97 @@
+// В этом файле должны быть стили для БЭМ-блока application, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.application {
+	&__inner {
+		padding: 32px 0 20px;
+		@media (min-width: $screen-md) {
+			padding: 64px 0 16px;
+		}
+	}
+	&__header {
+		display: grid;
+		grid-template-areas:
+			'heading button'
+			'filter filter';
+		grid-row-gap: 24px;
+		@media (min-width: $screen-md) {
+			grid-template-areas:
+			'heading filter button';
+		}
+	}
+	&__heading {
+		font-size: 32px;
+		font-weight: 700;
+		grid-area: heading;
+		line-height: 1;
+		margin: 0 0 0 12px;
+		align-self: center;
+		@media (min-width: $screen-nexus) {
+			margin: 0;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 44px;
+			line-height: 1.2;
+		}
+		span {
+			color: var(--color-grey-tertiary);
+			font-size: 24px;
+			@media (min-width: $screen-md) {
+				font-size: 32px;
+			}
+		}
+	}
+	&__button {
+		grid-area: button;
+		justify-self: end;
+		align-self: end;
+		margin-right: 12px;
+		@media (min-width: $screen-nexus) {
+			margin: 0;
+		}
+		@media (min-width: $screen-md) {
+			margin-left: 30px;
+		}
+	}
+	&__filter {
+		align-items: center;
+		align-self: end;
+		display: grid;
+		grid-area: filter;
+		grid-gap: 8px;
+		@media (min-width: $screen-nexus) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (min-width: $screen-md) {
+			grid-template-columns: 180px 278px;
+			justify-self: end;
+		}
+		@media (min-width: $screen-lg) {
+			grid-gap: 12px;
+			grid-template-columns: 230px 330px;
+		}
+	}
+	&__select {
+		@media (min-width: $screen-md) {
+			
+		}
+		@media (min-width: $screen-lg) {
+			width: 230px;
+		}
+	}
+	&__calendar {}
+	&__card-set {
+		display: grid;
+		grid-gap: 4px;
+		margin-top: 24px;
+		@media (min-width: $screen-nexus) {
+			grid-gap: 12px;
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (min-width: $screen-md) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			margin-top: 36px;
+		}
+	}
+}

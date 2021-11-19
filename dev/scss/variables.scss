@@ -1,0 +1,38 @@
+:root {
+	--font-family-base:				var(--font-family-sans);
+	--font-family-sans:				'Aeroport', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-family-accent:			'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
+	--color-typography:				var(--color-typography-primary);
+
+	--color-white:					#ffffff;
+	--color-black:					#000000;
+
+	--body-bg:						#ffffff;
+	--body-color:					#000000;
+
+	--font-size-base:				1rem;
+	--font-size-root:				null;
+
+	--font-weight-base:				var(--font-weight-normal);
+	--line-height-base:				1;
+	
+	--color-accepted:				#00bb66;
+	--color-accepted-light:			#e6f8f0;
+	--color-rejected:				#ff5566;
+	--color-rejected-light:			#ffeef0;
+	--color-waiting:				#fce1cf;
+	--color-waiting-light:			#fef9f5;
+	--color-income: 				#b4aaff;
+	--color-income-light:			#f0eefe;
+	--color-active:					#0d93f3;
+	--color-grey-primary:			#222222;
+	--color-grey-secondary:			#888888;
+	--color-grey-tertiary:			#cccccc;
+	--color-grey-quaternary:		#f3f3f3;
+	--color-light:					#ffffff;
+	--color-darker:					#f3f3f3f2;
+	
+	--color-typography-primary: 	var(--color-grey-primary);
+	
+	--inner-shadow-bottom:			0 1px 0 var(--color-grey-quaternary);
+}

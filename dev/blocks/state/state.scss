@@ -1,0 +1,44 @@
+// В этом файле должны быть стили для БЭМ-блока state, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.state {
+	margin: 0;
+	&_accepted, &_rejected, &_waiting, &_active {
+		position: relative;
+		&::before {
+			border-radius: 50%;
+			content: '';
+			display: block;
+			height: 8px;
+			left: -20px;
+			position: absolute;
+			top: 32%;
+			width: 8px;
+			@media (min-width: $screen-sm) {
+				top: 32%;
+				left: -18px;
+			}
+		}
+	}
+	&_accepted {
+		&::before {
+			background: var(--color-waiting);
+		}
+	}
+	&_rejected {
+		&::before {
+			background: var(--color-rejected);
+		}
+	}
+	&_waiting {
+		&::before {
+			background: var(--color-accepted);
+		}
+	}
+	&_active {
+		&::before {
+			background: var(--color-active);
+		}
+	}
+}

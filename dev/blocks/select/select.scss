@@ -1,0 +1,56 @@
+// В этом файле должны быть стили для БЭМ-блока select, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.select {
+	appearance: none;
+	background-color: var(--color-grey-quaternary);
+	background-image: url(../img/svgSprite.svg#icon__shevron_thin-view);
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 24px 24px;
+	border-radius: 9px;
+	border: 1px solid transparent;
+	color: var(--color-dark-primary);
+	cursor: pointer;
+	display: block;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	margin: 0;
+	outline: 0;
+	padding: 9px 15px;
+	transition: border .25s ease, opacity .25s ease;
+	width: 100%;
+	&::-ms-expand {
+		display: none;
+	}
+	&:hover {
+		border: 1px solid var(--color-grey-primary);
+	}
+	&_secondary {
+		color: var(--color-grey-secondary);
+	}
+	.detail__select & {
+		background-color: transparent;
+		background-image: url(../img/svgSprite.svg#icon__settings-view);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 24px 24px;
+		color: transparent;
+		@media (min-width: $screen-md) {
+			background-color: var(--color-grey-quaternary);
+			background-image: url(../img/svgSprite.svg#icon__shevron_thin-view);
+			background-position: right 16px center;
+			color: var(--color-grey-secondary);
+		}
+		&:hover {
+			border: 1px solid transparent;
+			opacity: .7;
+			@media (min-width: $screen-md) {
+				border: 1px solid var(--color-grey-primary);
+				opacity: 1;
+			}
+		}
+	}
+}

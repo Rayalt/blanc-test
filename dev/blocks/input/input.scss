@@ -1,0 +1,70 @@
+// В этом файле должны быть стили для БЭМ-блока input, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.input {
+	&__search {
+		appearance: none;
+		background-color: var(--color-grey-quaternary);
+		background-image: url(../img/svgSprite.svg#icon__search-view);
+		background-repeat: no-repeat;
+		background-position: right 16px center;
+		background-size: 24px 24px;
+		border-radius: 9px;
+		border: 1px solid transparent;
+		color: var(--color-grey-primary);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		outline: none;
+		padding: 9px 15px;
+		transition: border .25s ease;
+		width: 100%;
+		&::placeholder {
+			color: var(--color-grey-secondary);
+		}
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+			background-image: url(../img/svgSprite.svg#icon__cross-view);
+			background-repeat: no-repeat;
+			background-position: right center;
+			cursor: pointer;
+			height: 24px;
+			position: relative;
+			width: 24px;
+		}
+		&:focus {
+			background-image: none;
+			border: 1px solid var(--color-grey-primary);
+		}
+		.detail__search & {
+			height: 48px;
+			@media (min-width: $screen-sm) {
+				height: auto;
+			}
+		}
+	}
+	&__calendar {
+		appearance: none;
+		background-color: var(--color-grey-quaternary);
+		background-image: url(../img/svgSprite.svg#icon__calendar-view);
+		background-repeat: no-repeat;
+		background-position: right 16px center;
+		background-size: 24px 24px;
+		border-radius: 9px;
+		border: 1px solid transparent;
+		color: var(--color-grey-primary);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		outline: none;
+		padding: 9px 15px;
+		width: 100%;
+		&::placeholder {
+			color: var(--color-grey-primary);
+		}
+		&:focus {
+			border: 1px solid var(--color-grey-primary);
+		}
+	}
+}

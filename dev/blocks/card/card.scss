@@ -1,0 +1,125 @@
+// В этом файле должны быть стили для БЭМ-блока card, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.card {
+	border-radius: 9px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 12px 20px 13px;
+	transition: height .25s ease;
+	@media (min-width: $screen-md) {
+		padding: 20px;
+	}
+	.application__card:nth-child(4n + 1) & {
+		background: var(--color-waiting-light);
+	}
+	.application__card:nth-child(3n + 2) & {
+		background: var(--color-accepted-light);
+	}
+	.application__card:nth-child(2n + 3) & {
+		background: var(--color-rejected-light);
+	}
+	.application__card:nth-child(n + 4)  &{
+		background: var(--color-income-light);
+	}
+	.accordion-open & {
+		height: 100%;
+		padding: 12px 20px 17px;
+		@media (min-width: $screen-nexus) {
+			padding: 12px 20px 13px;
+		}
+		@media (min-width: $screen-md) {
+			padding: 20px;
+		}
+	}
+	&__header {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		user-select: none;
+		@media (min-width: $screen-md) {
+			display: block;
+		}
+	}
+	&__header-info {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__title {
+		color: var(--color-grey-secondary);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		margin: 0;
+	}
+	&__icon {
+		display: none;
+		fill: var(--color-grey-secondary);
+		height: 16px;
+		transition: rotate .5s ease;
+		width: 16px;
+		@media (min-width: $screen-md) {
+			display: block;
+		}
+		.accordion-open & {
+			transform: rotate(180deg);
+		}
+	}
+	&__total {
+		font-size: 22px;
+		font-weight: 400;
+		line-height: 1.27;
+		margin: 0;
+		@media (min-width: $screen-md) {
+			font-size: 24px;
+			line-height: 1.25;
+		}
+	}
+	&__body {
+		opacity: 0;
+		overflow: hidden;
+		transition: opacity .75s ease;
+		.accordion-open & {
+			opacity: 1;
+			transition: opacity .75s ease;
+		}
+	}
+	&__inner {
+		padding-top: 22px;
+		@media (min-width: $screen-md) {
+			padding-top: 14px;
+		}
+	}
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		& + & {
+			margin-top: 4px;
+		}
+	}
+	&__info {
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		line-height: 1.43;
+		margin: 0;
+		@media (min-width: $screen-md) {
+			max-width: 100px;
+		}
+		@media (min-width: $screen-lg) {
+			max-width: none;
+		}
+	}
+	&__score {
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.33;
+		margin: 0 0 0 25px;
+		white-space: nowrap;
+	}
+}
